@@ -1,8 +1,10 @@
 from pydantic import BaseModel, ConfigDict
 
+
 class AccountCreate(BaseModel):
     type: str
     interest: float
+
 
 class AccountResponse(BaseModel):
     id: int
@@ -11,3 +13,8 @@ class AccountResponse(BaseModel):
     user_id: int
 
     model_config = ConfigDict(from_attributes=True)
+
+
+class AccountUpdate(BaseModel):
+    type: str | None = None
+    interest: float | None = None
