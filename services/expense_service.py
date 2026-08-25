@@ -3,12 +3,12 @@ from models.expense import Expense
 from schemas.expense import ExpenseCreate, ExpenseUpdate
 
 
-def create_expense(db: Session, expense_data: ExpenseCreate) -> Expense:
+def create_expense(db: Session, expense_data: ExpenseCreate, account_id: int) -> Expense:
     new_expense = Expense(
         description=expense_data.description,
         amount=expense_data.amount,
         date=expense_data.date,
-        account_id=expense_data.account_id
+        account_id=account_id
     )
 
     db.add(new_expense)

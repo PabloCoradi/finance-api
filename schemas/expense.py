@@ -6,7 +6,6 @@ class ExpenseCreate(BaseModel):
     description: str | None = None
     amount: float
     date: Date | None = Field(default_factory=Date.today)
-    account_id: int
 
 
 class ExpenseResponse(BaseModel):
